@@ -1,94 +1,144 @@
-# Obsidian Sample Plugin
+IA Blocks Plugin for Obsidian
 
-This is a sample plugin for Obsidian (https://obsidian.md).
+Este plugin de Obsidian te permite resaltar respuestas de IA con estilos visuales únicos para cada proveedor, mejorando la legibilidad y organización de tus notas con contenido generado por inteligencia artificial.
 
-This project uses TypeScript to provide type checking and documentation.
-The repo depends on the latest plugin API (obsidian.d.ts) in TypeScript Definition format, which contains TSDoc comments describing what it does.
+Características principales
+🎨 Estilos visuales personalizados para cada proveedor de IA
 
-This sample plugin demonstrates some of the basic functionality the plugin API can do.
-- Adds a ribbon icon, which shows a Notice when clicked.
-- Adds a command "Open Sample Modal" which opens a Modal.
-- Adds a plugin setting tab to the settings page.
-- Registers a global click event and output 'click' to the console.
-- Registers a global interval which logs 'setInterval' to the console.
+💬 Sintaxis simple con parámetros configurables
 
-## First time developing plugins?
+🚀 Renderizado eficiente usando React
 
-Quick starting guide for new plugin devs:
+⚙️ Altamente personalizable mediante CSS
 
-- Check if [someone already developed a plugin for what you want](https://obsidian.md/plugins)! There might be an existing plugin similar enough that you can partner up with.
-- Make a copy of this repo as a template with the "Use this template" button (login to GitHub if you don't see it).
-- Clone your repo to a local development folder. For convenience, you can place this folder in your `.obsidian/plugins/your-plugin-name` folder.
-- Install NodeJS, then run `npm i` in the command line under your repo folder.
-- Run `npm run dev` to compile your plugin from `main.ts` to `main.js`.
-- Make changes to `main.ts` (or create new `.ts` files). Those changes should be automatically compiled into `main.js`.
-- Reload Obsidian to load the new version of your plugin.
-- Enable plugin in settings window.
-- For updates to the Obsidian API run `npm update` in the command line under your repo folder.
+Instalación
+Ve a Configuración > Plugins > Comunidad
 
-## Releasing new releases
+Busca "IA Blocks"
 
-- Update your `manifest.json` with your new version number, such as `1.0.1`, and the minimum Obsidian version required for your latest release.
-- Update your `versions.json` file with `"new-plugin-version": "minimum-obsidian-version"` so older versions of Obsidian can download an older version of your plugin that's compatible.
-- Create new GitHub release using your new version number as the "Tag version". Use the exact version number, don't include a prefix `v`. See here for an example: https://github.com/obsidianmd/obsidian-sample-plugin/releases
-- Upload the files `manifest.json`, `main.js`, `styles.css` as binary attachments. Note: The manifest.json file must be in two places, first the root path of your repository and also in the release.
-- Publish the release.
+Haz clic en Instalar
 
-> You can simplify the version bump process by running `npm version patch`, `npm version minor` or `npm version major` after updating `minAppVersion` manually in `manifest.json`.
-> The command will bump version in `manifest.json` and `package.json`, and add the entry for the new version to `versions.json`
+Activa el plugin
 
-## Adding your plugin to the community plugin list
+Instalación manual:
 
-- Check the [plugin guidelines](https://docs.obsidian.md/Plugins/Releasing/Plugin+guidelines).
-- Publish an initial version.
-- Make sure you have a `README.md` file in the root of your repo.
-- Make a pull request at https://github.com/obsidianmd/obsidian-releases to add your plugin.
+Descarga la última versión de Releases
 
-## How to use
+Extrae en tu carpeta de plugins de Obsidian: .obsidian/plugins/ia-blocks
 
-- Clone this repo.
-- Make sure your NodeJS is at least v16 (`node --version`).
-- `npm i` or `yarn` to install dependencies.
-- `npm run dev` to start compilation in watch mode.
-
-## Manually installing the plugin
-
-- Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
-
-## Improve code quality with eslint (optional)
-- [ESLint](https://eslint.org/) is a tool that analyzes your code to quickly find problems. You can run ESLint against your plugin to find common bugs and ways to improve your code. 
-- To use eslint with this project, make sure to install eslint from terminal:
-  - `npm install -g eslint`
-- To use eslint to analyze this project use this command:
-  - `eslint main.ts`
-  - eslint will then create a report with suggestions for code improvement by file and line number.
-- If your source code is in a folder, such as `src`, you can use eslint with this command to analyze all files in that folder:
-  - `eslint .\src\`
-
-## Funding URL
-
-You can include funding URLs where people who use your plugin can financially support it.
-
-The simple way is to set the `fundingUrl` field to your link in your `manifest.json` file:
-
-```json
-{
-    "fundingUrl": "https://buymeacoffee.com"
-}
+Uso
+Sintaxis básica
+markdown
+```ia-block ìa:dp
+Este contenido será estilizado como respuesta de DeepSeek
 ```
+Parámetros avanzados
+Parámetro	Valores	Descripción
+ìa	dp, cg, c	Proveedor de IA (DeepSeek, ChatGPT, Copilot)
+title	Texto libre	Título personalizado para el bloque
+theme	light, dark	Tema visual (opcional)
+Ejemplos
+Bloque con título personalizado:
 
-If you have multiple URLs, you can also do:
-
-```json
-{
-    "fundingUrl": {
-        "Buy Me a Coffee": "https://buymeacoffee.com",
-        "GitHub Sponsor": "https://github.com/sponsors",
-        "Patreon": "https://www.patreon.com/"
-    }
-}
+markdown
+```ia-block ìa:cg title:Análisis de mercado
+El análisis sugiere una tendencia alcista...
 ```
+Bloque con tema oscuro:
 
-## API Documentation
+markdown
+```ia-block ìa:c theme:dark
+Sugiero implementar estas mejoras...
+```
+Combinación de parámetros:
 
-See https://github.com/obsidianmd/obsidian-api
+markdown
+```ia-block ìa:dp title:Resumen ejecutivo theme:light
+El proyecto muestra un ROI prometedor...
+```
+Estilos visuales predeterminados
+Proveedor	Color principal	Icono
+DeepSeek	#2E7DDB	🤖
+ChatGPT	#10A37F	💬
+Copilot	#7F66FF	🧠
+Personalización
+Puedes sobrescribir los estilos añadiendo este CSS en tu snippet personalizado:
+
+css
+/* En tu obsidian.css o snippet CSS */
+
+.ia-block.dp {
+  --ia-primary: #2E7DDB;
+  --ia-icon: "🤖";
+}
+
+.ia-block.cg {
+  --ia-primary: #10A37F;
+  --ia-icon: "💬";
+}
+
+.ia-block.c {
+  --ia-primary: #7F66FF;
+  --ia-icon: "🧠";
+}
+
+.ia-block {
+  border-left: 4px solid var(--ia-primary);
+  padding: 1em;
+  background-color: color-mix(in srgb, var(--ia-primary) 10%, transparent);
+  border-radius: 0 8px 8px 0;
+}
+
+.ia-block-header::before {
+  content: var(--ia-icon);
+  margin-right: 8px;
+}
+Desarrollo
+Este plugin está construido con:
+
+TypeScript
+
+React (JSX)
+
+Obsidian API
+
+CSS Modules
+
+Requisitos para desarrollo
+Node.js v16+
+
+npm
+
+Comandos útiles
+bash
+# Instalar dependencias
+npm install
+
+# Modo desarrollo (observa cambios)
+npm run dev
+
+# Build de producción
+npm run build
+Contribuciones
+Las contribuciones son bienvenidas! Por favor:
+
+Haz un fork del repositorio
+
+Crea una rama para tu feature (git checkout -b feature/nueva-funcionalidad)
+
+Haz commit de tus cambios (git commit -am 'Añade nueva funcionalidad')
+
+Haz push a la rama (git push origin feature/nueva-funcionalidad)
+
+Abre un Pull Request
+
+Créditos
+Este proyecto está basado en el Obsidian Sample Plugin.
+[Obsidian-example-plugin](https://github.com/obsidianmd/obsidian-sample-plugin)
+
+Desarrollado con ❤️ por [Ralf52](https://github.com/ralf52)
+
+Licencia
+MIT License - Ver LICENSE para más detalles
+
+¿Necesitas ayuda o tienes sugerencias? Abre un issue en GitHub!
