@@ -2,6 +2,8 @@ import * as React from 'react';
 import { MarkdownRenderer } from 'obsidian';
 import { IABlockParams } from '../types';
 import { Plugin } from 'obsidian';
+// import the required icons from './iconsBar'
+import { ChevronDownIcon, ChevronUpIcon, CopyIcon, CheckCircleIcon } from './iconsBar';
 
 interface IABlockProps {
     params: IABlockParams;
@@ -71,14 +73,14 @@ const IABlockComponent: React.FC<IABlockProps> = ({
             .catch(err => console.error('Error al copiar:', err));
     };
 
-    return (
+   return (
         <div className={`ia-response ${isExpanded ? '' : 'content-hidden'}`}>
             <div className="ia-header">
                 <div className="ia-container-header-text">
                     <div 
                         className="ia-logo" 
                         dangerouslySetInnerHTML={{ 
-                            __html: getLogoSVG(params.ia || 'dp') 
+                            __html: getLogoSVG(params.ia || 'default') 
                         }} 
                     />
                     <h3 className="ia-title">
@@ -87,24 +89,24 @@ const IABlockComponent: React.FC<IABlockProps> = ({
                 </div>
                 
                 <div className="ia-type">
-                    {getModelName(params.ia || 'dp')}
+                    {getModelName(params.ia || 'default')}
                 </div>
-                
+
                 <div className="ia-actions">
-                    <button 
-                        className="action-btn" 
-                        onClick={() => setIsExpanded(!isExpanded)}
-                        title={isExpanded ? 'Ocultar contenido' : 'Mostrar contenido'}
-                    >
-                        <i className={`fas fa-chevron-${isExpanded ? 'down' : 'up'}`}></i>
-                    </button>
-                    
                     <button 
                         className="action-btn" 
                         onClick={copyContent}
                         title="Copiar contenido"
                     >
-                        <i className="fas fa-copy"></i>
+                        <CopyIcon />
+                    </button>
+
+                    <button 
+                        className="action-btn" 
+                        onClick={() => setIsExpanded(!isExpanded)}
+                        title={isExpanded ? 'Ocultar contenido' : 'Mostrar contenido'}
+                    >
+                        {isExpanded ? <ChevronDownIcon /> : <ChevronUpIcon />}
                     </button>
                 </div>
             </div>
@@ -115,7 +117,7 @@ const IABlockComponent: React.FC<IABlockProps> = ({
             />
             
             <div className={`notification ${showNotification ? 'show' : ''}`}>
-                <i className="fas fa-check-circle"></i> ¡Contenido copiado!
+                <CheckCircleIcon /> ¡Contenido copiado!
             </div>
         </div>
     );
