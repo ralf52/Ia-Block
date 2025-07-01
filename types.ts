@@ -9,7 +9,7 @@ declare global {
 }
 
 export interface IABlockParams {
-    ia?: 'dp' | 'cg' | 'c' | 'g' | 'default'; // Añade 'g' aquí
+    ia?: 'default' | 'dp' | 'cg' | 'c' | 'g';
     title?: string;
     content: string;
 }

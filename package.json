@@ -1,15 +1,17 @@
 {
-	"name": "obsidian-sample-plugin",
+	"name": "obsidian-ia-block",
 	"version": "1.0.0",
-	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
+	"description": "Plugin para Obsidian que crea bloques estilizados para contenido generado por IA",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
 		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
-		"version": "node version-bump.mjs && git add manifest.json versions.json"
+		"version": "node version-bump.mjs && git add manifest.json versions.json",
+		"lint": "eslint . --ext .ts,.tsx",
+		"lint:fix": "eslint . --ext .ts,.tsx --fix"
 	},
-	"keywords": [],
-	"author": "",
+	"keywords": ["obsidian", "plugin", "ai", "markdown", "blocks"],
+	"author": "Tu Nombre",
 	"license": "MIT",
 	"devDependencies": {
 		"@types/node": "^16.18.126",
@@ -19,6 +21,9 @@
 		"@typescript-eslint/parser": "5.29.0",
 		"builtin-modules": "3.3.0",
 		"esbuild": "^0.25.5",
+		"eslint": "^8.0.0",
+		"eslint-plugin-react": "^7.33.0",
+		"eslint-plugin-react-hooks": "^4.6.0",
 		"obsidian": "latest",
 		"tslib": "2.4.0",
 		"typescript": "4.7.4"

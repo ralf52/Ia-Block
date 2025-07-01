@@ -1,144 +1,166 @@
-IA Blocks Plugin for Obsidian
+# IA Block Generator
 
-Este plugin de Obsidian te permite resaltar respuestas de IA con estilos visuales únicos para cada proveedor, mejorando la legibilidad y organización de tus notas con contenido generado por inteligencia artificial.
+Un plugin para Obsidian que crea bloques estilizados para contenido generado por IA con soporte para múltiples modelos.
 
-Características principales
-🎨 Estilos visuales personalizados para cada proveedor de IA
+## ✨ Características
 
-💬 Sintaxis simple con parámetros configurables
+- **Múltiples modelos de IA**: Soporte para DeepSeek, ChatGPT, Copilot, Gemini y más
+- **Bloques de código**: Sintaxis simple para crear bloques IA
+- **Bloques inline**: Integración directa en el texto
+- **Iconos locales**: Sin dependencias externas
+- **Temas adaptativos**: Soporte completo para modo oscuro y claro
+- **Accesibilidad**: Compatible con lectores de pantalla
+- **Responsive**: Diseño adaptativo para móviles
+- **Copiado inteligente**: Con fallback para navegadores antiguos
 
-🚀 Renderizado eficiente usando React
+## 🚀 Instalación
 
-⚙️ Altamente personalizable mediante CSS
+### Desde Obsidian
+1. Ve a **Configuración** → **Complementos de la comunidad**
+2. Desactiva **Modo seguro**
+3. Haz clic en **Explorar**
+4. Busca "IA Block Generator"
+5. Haz clic en **Instalar**
 
-Instalación
-Ve a Configuración > Plugins > Comunidad
+### Instalación manual
+1. Descarga el archivo `.zip` de la última versión
+2. Extrae el archivo en tu carpeta de plugins de Obsidian
+3. Activa el plugin en **Configuración** → **Complementos de la comunidad**
 
-Busca "IA Blocks"
+## 📖 Uso
 
-Haz clic en Instalar
+### Bloques de código
 
-Activa el plugin
+Crea bloques IA usando la sintaxis de código de Obsidian:
 
-Instalación manual:
+```markdown
+```ia-block
+ia: dp
+title: "Análisis de datos"
 
-Descarga la última versión de Releases
-
-Extrae en tu carpeta de plugins de Obsidian: .obsidian/plugins/ia-blocks
-
-Uso
-Sintaxis básica
-markdown
-```ia-block ìa:dp
-Este contenido será estilizado como respuesta de DeepSeek
+Este es el contenido generado por DeepSeek-R1.
+Puede incluir **markdown** completo.
 ```
-Parámetros avanzados
-Parámetro	Valores	Descripción
-ìa	dp, cg, c	Proveedor de IA (DeepSeek, ChatGPT, Copilot)
-title	Texto libre	Título personalizado para el bloque
-theme	light, dark	Tema visual (opcional)
-Ejemplos
-Bloque con título personalizado:
-
-markdown
-```ia-block ìa:cg title:Análisis de mercado
-El análisis sugiere una tendencia alcista...
 ```
-Bloque con tema oscuro:
 
-markdown
-```ia-block ìa:c theme:dark
-Sugiero implementar estas mejoras...
+### Bloques inline
+
+Usa la sintaxis especial para bloques inline:
+
+```markdown
+.... ia: cg title: "Resumen" Este es un resumen generado por ChatGPT ....
 ```
-Combinación de parámetros:
 
-markdown
-```ia-block ìa:dp title:Resumen ejecutivo theme:light
-El proyecto muestra un ROI prometedor...
+### Parámetros disponibles
+
+| Parámetro | Descripción | Valores |
+|-----------|-------------|---------|
+| `ia` | Tipo de IA | `default`, `dp`, `cg`, `c`, `g` |
+| `title` | Título del bloque | Cualquier texto |
+
+### Modelos soportados
+
+- **`default`** - Asistente IA genérico
+- **`dp`** - DeepSeek-R1
+- **`cg`** - ChatGPT
+- **`c`** - Copilot
+- **`g`** - Gemini
+
+## 🎨 Personalización
+
+### Variables CSS
+
+Puedes personalizar los colores editando las variables CSS en tu tema:
+
+```css
+:root {
+    --ia-primary-color: #7a5af5;
+    --ia-secondary-color: #b8a8ff;
+    --ia-bg-dark: linear-gradient(135deg, #1a1b26 0%, #16161e 100%);
+    --ia-bg-light: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
 ```
-Estilos visuales predeterminados
-Proveedor	Color principal	Icono
-DeepSeek	#2E7DDB	🤖
-ChatGPT	#10A37F	💬
-Copilot	#7F66FF	🧠
-Personalización
-Puedes sobrescribir los estilos añadiendo este CSS en tu snippet personalizado:
 
-css
-/* En tu obsidian.css o snippet CSS */
+### Funcionalidades
 
-.ia-block.dp {
-  --ia-primary: #2E7DDB;
-  --ia-icon: "🤖";
-}
+- **Expandir/Contraer**: Haz clic en el botón de chevron para mostrar/ocultar contenido
+- **Copiar**: Haz clic en el botón de copiar para copiar todo el contenido
+- **Notificaciones**: Feedback visual cuando se copia el contenido
 
-.ia-block.cg {
-  --ia-primary: #10A37F;
-  --ia-icon: "💬";
-}
+## 🔧 Desarrollo
 
-.ia-block.c {
-  --ia-primary: #7F66FF;
-  --ia-icon: "🧠";
-}
+### Requisitos
 
-.ia-block {
-  border-left: 4px solid var(--ia-primary);
-  padding: 1em;
-  background-color: color-mix(in srgb, var(--ia-primary) 10%, transparent);
-  border-radius: 0 8px 8px 0;
-}
+- Node.js 16+
+- npm o yarn
 
-.ia-block-header::before {
-  content: var(--ia-icon);
-  margin-right: 8px;
-}
-Desarrollo
-Este plugin está construido con:
+### Instalación de dependencias
 
-TypeScript
-
-React (JSX)
-
-Obsidian API
-
-CSS Modules
-
-Requisitos para desarrollo
-Node.js v16+
-
-npm
-
-Comandos útiles
-bash
-# Instalar dependencias
+```bash
 npm install
+```
 
-# Modo desarrollo (observa cambios)
+### Desarrollo
+
+```bash
 npm run dev
+```
 
-# Build de producción
+### Build de producción
+
+```bash
 npm run build
-Contribuciones
-Las contribuciones son bienvenidas! Por favor:
+```
 
-Haz un fork del repositorio
+### Estructura del proyecto
 
-Crea una rama para tu feature (git checkout -b feature/nueva-funcionalidad)
+```
+├── Components/
+│   ├── IABlockComponent.tsx  # Componente principal
+│   └── Icons.tsx            # Iconos SVG locales
+├── main.ts                  # Plugin principal
+├── types.ts                 # Definiciones de tipos
+├── styles.css              # Estilos CSS
+├── manifest.json           # Metadatos del plugin
+└── package.json            # Dependencias
+```
 
-Haz commit de tus cambios (git commit -am 'Añade nueva funcionalidad')
+## 🤝 Contribuir
 
-Haz push a la rama (git push origin feature/nueva-funcionalidad)
+1. Fork el repositorio
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
 
-Abre un Pull Request
+## 📝 Licencia
 
-Créditos
-Este proyecto está basado en el Obsidian Sample Plugin.
-[Obsidian-example-plugin](https://github.com/obsidianmd/obsidian-sample-plugin)
+Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para detalles.
 
-Desarrollado con ❤️ por [Ralf52](https://github.com/ralf52)
+## 🙏 Agradecimientos
 
-Licencia
-MIT License - Ver LICENSE para más detalles
+- [Obsidian](https://obsidian.md) por la plataforma
+- [React](https://reactjs.org) por el framework de UI
+- La comunidad de Obsidian por el soporte
 
-¿Necesitas ayuda o tienes sugerencias? Abre un issue en GitHub!
+## 📞 Soporte
+
+Si tienes problemas o sugerencias:
+
+1. Revisa los [issues existentes](https://github.com/tuusuario/obsidian-ia-block/issues)
+2. Crea un nuevo issue con detalles del problema
+3. Incluye información sobre tu sistema y versión de Obsidian
+
+## 🔄 Changelog
+
+### v1.0.0
+- Lanzamiento inicial
+- Soporte para múltiples modelos de IA
+- Bloques de código e inline
+- Iconos locales
+- Temas adaptativos
+- Accesibilidad mejorada
+
+---
+
+**¿Te gusta este plugin? ¡Considera darle una ⭐ en GitHub!**

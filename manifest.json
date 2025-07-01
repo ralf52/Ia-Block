@@ -3,10 +3,10 @@
     "name": "IA Block Generator",
     "version": "1.0.0",
     "minAppVersion": "1.1.0",
-    "description": "Crea bloques estilizados para contenido generado por IA",
+    "description": "Crea bloques estilizados para contenido generado por IA con soporte para múltiples modelos (DeepSeek, ChatGPT, Copilot, Gemini)",
     "author": "Tu Nombre",
     "authorUrl": "https://github.com/tuusuario",
     "isDesktopOnly": false,
-    "css": "styles.css",
-    "js": ["https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"]
+    "repo": "tuusuario/obsidian-ia-block",
+    "branch": "main"
 }
