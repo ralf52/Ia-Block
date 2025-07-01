@@ -54,31 +54,6 @@ const IABlockComponent: React.FC<IABlockProps> = ({
                     '',
                     plugin
                 );
-                
-                // Post-procesamiento con verificación de nulidad
-                setTimeout(() => {
-                    if (!currentRef) return;
-                    
-                    // Renderizar ecuaciones matemáticas
-                    if ((window as any).renderMathInElement) {
-                        (window as any).renderMathInElement(currentRef, {
-                            delimiters: [
-                                {left: '$$', right: '$$', display: true},
-                                {left: '$', right: '$', display: false}
-                            ],
-                            throwOnError: false
-                        });
-                    }
-                    
-                    // Resaltar sintaxis con verificación de nulidad y tipo correcto
-                    if ((window as any).hljs) {
-                        const codeBlocks = currentRef.querySelectorAll('pre code');
-                        codeBlocks.forEach((el) => {
-                            const htmlElement = el as HTMLElement;
-                            (window as any).hljs.highlightElement(htmlElement);
-                        });
-                    }
-                }, 10);
             } catch (error) {
                 console.error('Error renderizando markdown:', error);
                 currentRef.innerHTML = '<div class="ia-error">Error al renderizar el contenido</div>';
