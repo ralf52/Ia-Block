@@ -173,16 +173,16 @@ const IABlockComponent: React.FC<IABlockProps> = ({
                     >
                         <CopyIcon />
                     </button>
+                    {/* Botón PDF Mode solo visible al imprimir */}
+                    <span className="action-mpdf">PDF Mode</span>
                 </div>
             </div>
             
             {/* Contenido colapsable */}
-            {isExpanded && (
-                <div 
-                    ref={contentRef} 
-                    className="ia-content"
-                />
-            )}
+            <div 
+                ref={contentRef} 
+                className="ia-content"
+            />
             
             {/* Notificación de copiado */}
             {showNotification && (
