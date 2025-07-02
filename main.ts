@@ -4,9 +4,10 @@ import IABlockComponent from './Components/IABlockComponent';
 import { Plugin, MarkdownPostProcessorContext } from 'obsidian';
 import { IABlockParams } from './types';
 
-const IA_BLOCK_REGEX = /\.\.\.\.\s*(.*?)\s*\.\.\.\./s;
+
 
 export default class IABlockPlugin extends Plugin {
+     private inlinePattern = /\.\.\.\.\s*(.*?)\s*\.\.\.\./s;
     /**
      * Se ejecuta cuando el plugin se carga
      */
@@ -27,22 +28,39 @@ export default class IABlockPlugin extends Plugin {
     /**
      * Procesa bloques inline de IA
      */
-    private processInlineBlocks(el: HTMLElement, ctx: MarkdownPostProcessorContext): void {
+     private processInlineBlocks(el: HTMLElement, ctx: MarkdownPostProcessorContext): void {
         try {
-            el.findAll('p').forEach((p) => {
-                const text = p.textContent;
-                if (!text) return;
-
-                const match = text.match(IA_BLOCK_REGEX);
-                if (match && match[1]) {
-                    this.renderInlineIABlock(match[1], p);
-                }
-            });
+            // Buscar bloques IA en elementos de párrafo
+            const paragraphs = el.querySelectorAll('p');
+            paragraphs.forEach(p => this.processParagraph(p));
+            
+            // Buscar bloques IA en elementos de código
+            const codeElements = el.querySelectorAll(':not(pre) > code');
+            codeElements.forEach(code => this.processCodeElement(code as HTMLElement));
         } catch (error) {
             console.error('Error procesando bloques inline:', error);
         }
     }
 
+    private processParagraph(p: HTMLElement): void {
+        const text = p.textContent;
+        if (!text || !this.inlinePattern.test(text)) return;
+        
+        const match = text.match(this.inlinePattern);
+        if (match && match[1]) {
+            this.renderInlineIABlock(match[1], p);
+        }
+    }
+
+    private processCodeElement(code: HTMLElement): void {
+        const content = code.textContent;
+        if (!content || !this.inlinePattern.test(content)) return;
+        
+        const match = content.match(this.inlinePattern);
+        if (match && match[1]) {
+            this.renderInlineIABlock(match[1], code);
+        }
+    }
     /**
      * Parsea los parámetros del bloque IA
      */

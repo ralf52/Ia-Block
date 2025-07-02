@@ -742,8 +742,10 @@
         }
     }
 
+   
+
   @media print {
-    .action-btn {
+    .action-btn button{
       display: none;
     }
     
