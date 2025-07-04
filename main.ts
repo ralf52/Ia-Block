@@ -1,18 +1,30 @@
 import { createRoot } from 'react-dom/client';
 import * as React from 'react';
 import IABlockComponent from './Components/IABlockComponent';
-import { Plugin, MarkdownPostProcessorContext } from 'obsidian';
+import { Plugin, MarkdownPostProcessorContext, PluginSettingTab, App, Setting, MarkdownView } from 'obsidian';
 import { IABlockParams } from './types';
 
+// 1. Definir interfaz de settings
+interface IABlockSettings {
+    defaultExpanded: boolean;
+}
 
+const DEFAULT_SETTINGS: IABlockSettings = {
+    defaultExpanded: false,
+};
 
 export default class IABlockPlugin extends Plugin {
-     private inlinePattern = /\.\.\.\.\s*(.*?)\s*\.\.\.\./s;
+    private inlinePattern = /\.\.\.\.\s*(.*?)\s*\.\.\.\./s;
+    settings: IABlockSettings;
     /**
      * Se ejecuta cuando el plugin se carga
      */
     async onload() {
         console.log('IA Block Plugin cargado');
+        // 2. Cargar settings
+        await this.loadSettings();
+        // 3. Registrar SettingTab
+        this.addSettingTab(new IABlockSettingTab(this.app, this));
 
         // Registrar procesador de bloques de código
         this.registerMarkdownCodeBlockProcessor('ia-block', (source, el, ctx) => {
@@ -219,5 +231,59 @@ export default class IABlockPlugin extends Plugin {
             case 'g': return 'Gemini';
             default: return 'Asistente IA';
         }
+    }
+
+    async loadSettings() {
+        this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+    }
+
+    async saveSettings() {
+        await this.saveData(this.settings);
+    }
+
+    /**
+     * Refresca todos los bloques IA en las vistas de Markdown
+     */
+    public refreshBlocks() {
+        // Refresca todas las vistas de Markdown
+        const leaves = this.app.workspace.getLeavesOfType('markdown');
+        for (const leaf of leaves) {
+            const view = leaf.view;
+            if (view instanceof MarkdownView) {
+                // Forzar re-render del preview si está en modo preview
+                if (view.getMode && view.getMode() === 'preview') {
+                    // Método público para refrescar el preview
+                    (view as any).previewMode?.renderer?.render();
+                } else if (view.editor) {
+                    // Si está en modo editor, forzar un cambio para refrescar el preview cuando se cambie
+                    view.editor.setValue(view.editor.getValue());
+                }
+            }
+        }
+    }
+}
+
+// 4. Crear SettingTab
+class IABlockSettingTab extends PluginSettingTab {
+    plugin: IABlockPlugin;
+    constructor(app: App, plugin: IABlockPlugin) {
+        super(app, plugin);
+        this.plugin = plugin;
+    }
+    display(): void {
+        const { containerEl } = this;
+        containerEl.empty();
+        containerEl.createEl('h2', { text: 'Ajustes de IA Block Generator' });
+        new Setting(containerEl)
+            .setName('Pestañas abiertas por defecto')
+            .setDesc('Si está activado, los bloques IA estarán expandidos por defecto.')
+            .addToggle(toggle => toggle
+                .setValue(this.plugin.settings.defaultExpanded)
+                .onChange(async (value) => {
+                    this.plugin.settings.defaultExpanded = value;
+                    await this.plugin.saveSettings();
+                    this.plugin.refreshBlocks(); // Refresca los bloques IA
+                })
+            );
     }
 }

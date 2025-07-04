@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { MarkdownRenderer } from 'obsidian';
 import { IABlockParams } from '../types';
-import { Plugin } from 'obsidian';
+import IABlockPlugin from '../main';
 import { CopyIcon, ChevronDownIcon, ChevronUpIcon, CheckCircleIcon } from './Icons';
 
 interface IABlockProps {
     params: IABlockParams;
     getLogoSVG: (ia: string) => string;
     getModelName: (ia: string) => string;
-    plugin: Plugin;
+    plugin: IABlockPlugin;
 }
 
 const IABlockComponent: React.FC<IABlockProps> = ({ 
@@ -17,7 +17,7 @@ const IABlockComponent: React.FC<IABlockProps> = ({
     getModelName,
     plugin
 }) => {
-    const [isExpanded, setIsExpanded] = React.useState(false);
+    const [isExpanded, setIsExpanded] = React.useState(() => plugin?.settings?.defaultExpanded ?? false);
     const [showNotification, setShowNotification] = React.useState(false);
     const [isCopied, setIsCopied] = React.useState(false);
     const contentRef = React.useRef<HTMLDivElement>(null);
@@ -58,7 +58,7 @@ const IABlockComponent: React.FC<IABlockProps> = ({
                 // Post-procesamiento con verificación de nulidad
                 setTimeout(() => {
                     if (!currentRef) return;
-                    
+                    /*
                     // Renderizar ecuaciones matemáticas
                     if ((window as any).renderMathInElement) {
                         (window as any).renderMathInElement(currentRef, {
@@ -78,6 +78,7 @@ const IABlockComponent: React.FC<IABlockProps> = ({
                             (window as any).hljs.highlightElement(htmlElement);
                         });
                     }
+                    */
                 }, 10);
             } catch (error) {
                 console.error('Error renderizando markdown:', error);
@@ -123,7 +124,7 @@ const IABlockComponent: React.FC<IABlockProps> = ({
     }, [memoizedContent]);
 
     const toggleExpanded = React.useCallback(() => {
-        setIsExpanded(prev => !prev);
+        setIsExpanded((prev: boolean) => !prev);
     }, []);
 
     // Memoizar el logo SVG para evitar re-renders

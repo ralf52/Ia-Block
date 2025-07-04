@@ -768,27 +768,7 @@
     min-height: 0;
     white-space: nowrap;
 }
-    /* Forzar visibilidad del contenido al imprimir */
-    .ia-response.content-hidden {
-      max-height: none !important;
-      overflow: visible !important;
-    }
-    .ia-response.content-hidden .ia-content {
-      display: block !important;
-      max-height: none !important;
-      overflow: visible !important;
-      opacity: 1 !important;
-      visibility: visible !important;
-      margin: 1.2em 0 !important;
-      padding: 0 !important;
-    }
-    .ia-content {
-      display: block !important;
-      max-height: none !important;
-      overflow: visible !important;
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
+
   }
 
     /* Animaciones suaves */
