@@ -1,0 +1,140 @@
+/* Estilos base para bloques IA */
+.ia-response {
+    background: var(--ia-bg-dark);
+    border-left: 4px solid var(--ia-primary-color);
+    border-radius: 0 8px 8px 0;
+    padding: .8em;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    margin: 1.5em 2em 1.5em 0;
+    overflow: hidden;
+}
+
+/* Soporte para modo claro */
+.theme-light .ia-response {
+    background: var(--ia-bg-light);
+    border-left: 4px solid var(--ia-primary-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Header del bloque IA */
+.ia-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--ia-border-dark);
+    flex-wrap: wrap;
+}
+
+.theme-light .ia-header {
+    border-bottom: 1px solid var(--ia-border-light);
+}
+
+.ia-container-header-text {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+}
+
+.ia-header-text {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Logo y título */
+.ia-logo {
+    width: 28px;
+    height: 28px;
+    filter: drop-shadow(0 0 5px rgba(122, 90, 245, 0.7));
+    flex-shrink: 0;
+    fill: #d8cfff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ia-logo svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.ia-title {
+    color: var(--ia-title-dark);
+    font-weight: 700;
+    font-size: 1.1em;
+    letter-spacing: 0.5px;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.theme-light .ia-title {
+    color: var(--ia-title-light);
+}
+
+.ia-type {
+    color: #999999;
+    font-style: italic;
+    font-size: 14px;
+}
+
+/* Contenido del bloque IA */
+.ia-content {
+    color: var(--ia-text-dark);
+    font-size: 1em;
+    transition: all 0.3s ease;
+    line-height: 1.6;
+}
+
+.theme-light .ia-content {
+    color: var(--ia-text-light);
+}
+
+/* Estados de contenido */
+.content-hidden .ia-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.content-hidden .ia-response {
+    padding-bottom: 20px;
+}
+
+/* Animaciones suaves */
+.ia-response,
+.ia-content,
+.action-btn,
+.notification {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mejoras de accesibilidad */
+.ia-response:focus-within {
+    outline: 2px solid var(--ia-primary-color);
+    outline-offset: 2px;
+}
+
+/* Soporte para lectores de pantalla */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+} 

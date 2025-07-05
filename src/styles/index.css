@@ -1,0 +1,10 @@
+/* IA Block Plugin Styles - Main Entry Point */
+
+/* Importar todos los archivos CSS en orden */
+@import './variables.css';
+@import './base.css';
+@import './markdown.css';
+@import './actions.css';
+@import './themes.css';
+@import './responsive.css';
+@import './legacy.css'; 

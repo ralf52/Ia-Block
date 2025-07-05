@@ -85,19 +85,13 @@ const IABlockComponent: React.FC<IABlockProps> = ({
     const memoizedContent = React.useMemo(() => params.content, [params.content]);
     
     /** Clase CSS memoizada según el tipo de IA */
-    const iaClass = React.useMemo(() => {
-        return IA_CLASSES[params.ia || 'default'];
-    }, [params.ia]);
+    const iaClass = React.useMemo(() => IA_CLASSES[params.ia || 'default'], [params.ia]);
     
     /** Logo SVG memoizado */
-    const logoSVG = React.useMemo(() => {
-        return getLogoSVG(params.ia || 'default');
-    }, [getLogoSVG, params.ia]);
+    const logoSVG = React.useMemo(() => getLogoSVG(params.ia || 'default'), [getLogoSVG, params.ia]);
     
     /** Nombre del modelo memoizado */
-    const modelName = React.useMemo(() => {
-        return getModelName(params.ia || 'default');
-    }, [getModelName, params.ia]);
+    const modelName = React.useMemo(() => getModelName(params.ia || 'default'), [getModelName, params.ia]);
 
     // ========================================================================
     // EFECTOS
@@ -119,17 +113,7 @@ const IABlockComponent: React.FC<IABlockProps> = ({
                     '',
                     plugin
                 );
-                
-                // Post-procesamiento con verificación de nulidad
-                setTimeout(() => {
-                    if (!currentRef) return;
-                    // Aquí se pueden agregar procesamientos adicionales como:
-                    // - Renderizado de ecuaciones matemáticas
-                    // - Resaltado de sintaxis
-                    // - etc.
-                }, 10);
             } catch (error) {
-                console.error('Error renderizando markdown:', error);
                 currentRef.innerHTML = '<div class="ia-error">Error al renderizar el contenido</div>';
             }
         };
@@ -149,7 +133,6 @@ const IABlockComponent: React.FC<IABlockProps> = ({
             await navigator.clipboard.writeText(memoizedContent);
             setState(prev => ({ ...prev, isCopied: true, showNotification: true }));
             
-            // Resetear el estado después del tiempo especificado
             setTimeout(() => {
                 setState(prev => ({ ...prev, showNotification: false }));
                 setTimeout(() => {
@@ -157,16 +140,6 @@ const IABlockComponent: React.FC<IABlockProps> = ({
                 }, ANIMATION_DELAY);
             }, NOTIFICATION_DURATION);
         } catch (err) {
-            console.error('Error al copiar:', err);
-            handleCopyFallback();
-        }
-    }, [memoizedContent]);
-
-    /**
-     * Fallback para navegadores que no soportan clipboard API
-     */
-    const handleCopyFallback = React.useCallback(() => {
-        try {
             const textArea = document.createElement('textarea');
             textArea.value = memoizedContent;
             document.body.appendChild(textArea);
@@ -181,8 +154,6 @@ const IABlockComponent: React.FC<IABlockProps> = ({
                     setState(prev => ({ ...prev, isCopied: false }));
                 }, ANIMATION_DELAY);
             }, NOTIFICATION_DURATION);
-        } catch (fallbackErr) {
-            console.error('Error en fallback de copiado:', fallbackErr);
         }
     }, [memoizedContent]);
 

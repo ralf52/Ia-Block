@@ -11,7 +11,8 @@ if you want to view the source, please visit the github repository of this plugi
 
 const prod = (process.argv[2] === "production");
 
-const context = await esbuild.context({
+// Configuración para el bundle de JavaScript
+const jsContext = await esbuild.context({
 	banner: {
 		js: banner,
 	},
@@ -41,9 +42,24 @@ const context = await esbuild.context({
 	minify: prod,
 });
 
+// Configuración para el bundle de CSS
+const cssContext = await esbuild.context({
+	entryPoints: ["src/styles/index.css"],
+	bundle: true,
+	outfile: "styles.css",
+	minify: prod,
+	sourcemap: prod ? false : "inline",
+	loader: {
+		'.css': 'css'
+	},
+	logLevel: "info",
+});
+
 if (prod) {
-	await context.rebuild();
+	await jsContext.rebuild();
+	await cssContext.rebuild();
 	process.exit(0);
 } else {
-	await context.watch();
+	await jsContext.watch();
+	await cssContext.watch();
 }

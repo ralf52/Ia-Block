@@ -1,0 +1,347 @@
+/* ===== ESTILOS ESPECÍFICOS POR TIPO DE IA ===== */
+
+/* Estilo por defecto (Asistente IA) */
+.ia-default {
+    border-image: linear-gradient(to bottom, #7a5af5, #3a2d70) 1;
+    border-left: 4px solid #7a5af5;
+    background: linear-gradient(135deg, #1a1b26 0%, #16161e 100%);
+}
+
+.ia-default .ia-logo {
+    filter: drop-shadow(0 0 5px rgba(122, 90, 245, 0.7));
+}
+
+.ia-default .ia-title {
+    color: #e6e3f0;
+}
+
+.theme-light .ia-default {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-left: 4px solid #6f42c1;
+}
+
+.theme-light .ia-default .ia-title {
+    color: #6f42c1;
+}
+
+/* Copilot */
+.ia-copilot {
+    border-image: linear-gradient(to bottom, #4b42f4, #63f3fd, #511ea4, #ba65d9) 1;
+    background: linear-gradient(135deg, #1c2338 0%, #0e111b 100%);
+    color: #fff;
+}
+
+.ia-copilot .ia-header {
+    border-bottom: 1px solid #45454d;
+}
+
+.ia-copilot .ia-logo {
+    fill: #bfbcf2;
+    filter: drop-shadow(0 0 5px rgba(130, 118, 238, 0.7));
+}
+
+.ia-copilot .ia-title {
+    color: #e3e3f0;
+}
+
+.ia-copilot p {
+    color: #fff;
+}
+
+.ia-copilot .ia-content h1, 
+.ia-copilot .ia-content h2, 
+.ia-copilot .ia-content h3 {
+    color: #fff;
+}
+
+.ia-copilot .ia-content a {
+    color: #511ea4;
+}
+
+.ia-copilot th {
+    background-color: #363652;
+}
+
+.ia-copilot code {
+    background-color: #3c334a;
+}
+
+.ia-copilot:focus-within {
+    outline: 2px solid #d2d3e9;
+    outline-offset: 2px;
+}
+
+.ia-copilot .action-btn {
+    border: 1px solid #4f4f63;
+}
+
+.ia-copilot .action-btn:focus-within {
+    outline-color: #dfd2e9;
+}
+
+.ia-copilot .action-btn:hover {
+    background: rgba(38, 40, 141, 0.1);
+    border-color: #d3d2e9;
+    color: #d3d2e9;
+}
+
+.ia-copilot pre {
+    background: #101010;
+    border: .1em solid #777;
+    border-radius: 16px;
+    color: #a2a9b0;
+}
+
+.ia-copilot .ia-content blockquote {
+    border-left: 4px solid #511ea4;
+    background: rgba(66, 133, 244, 0.1);
+}
+
+.theme-light .ia-copilot {
+    background: linear-gradient(135deg, #f8f9ff 0%, #e8f0fe 100%);
+    border-left: 4px solid #e9ded2;
+}
+
+.theme-light .ia-copilot .ia-title {
+    color: #1a73e8;
+}
+
+/* ChatGpt */
+.ia-chatgpt {
+    border-image: linear-gradient(to bottom, #f0e9e3, #7e756e) 1;
+    background: linear-gradient(135deg, #272624 0%, #0f0e0d 100%);
+    color: #fff;
+}
+
+.ia-chatgpt .ia-header {
+    border-bottom: 1px solid #4d4945;
+}
+
+.ia-chatgpt .ia-logo {
+    fill: #ddd;
+    filter: drop-shadow(0 0 5px rgba(238, 162, 118, 0.7));
+}
+
+.ia-chatgpt .ia-title {
+    color: #f0e9e3;
+}
+
+.ia-chatgpt p {
+    color: #fff;
+}
+
+.ia-chatgpt .ia-content h1, 
+.ia-chatgpt .ia-content h2, 
+.ia-chatgpt .ia-content h3 {
+    color: #fff;
+}
+
+.ia-chatgpt .ia-content a {
+    color: #e3733e;
+}
+
+.ia-chatgpt .ia-content ul,.ia-content ol,.ia-chatgpt .math {
+    color: #c5bdb6;
+}
+
+.ia-chatgpt th {
+    background-color: #282828;
+}
+
+.ia-chatgpt:focus-within {
+    outline: 2px solid #e9ded2;
+    outline-offset: 2px;
+}
+
+.ia-chatgpt .action-btn {
+    border: 1px solid #635a4f;
+}
+
+.ia-chatgpt .action-btn:focus-within {
+    outline-color: #e9ded2;
+}
+
+.ia-chatgpt .action-btn:hover {
+    background: rgba(141, 93, 38, 0.1);
+    border-color: #e9ded2;
+    color: #e9ded2;
+}
+
+.ia-chatgpt pre {
+    background: #101010;
+    border: .1em solid #777;
+    border-radius: 16px;
+    color: #a2a9b0;
+}
+
+.ia-chatgpt .ia-content blockquote {
+    border-left: 4px solid #e9ded2;
+    background: rgba(158, 147, 131, 0.1);
+}
+
+.theme-light .ia-chatgpt {
+    background: linear-gradient(135deg, #f8f9ff 0%, #e8f0fe 100%);
+    border-left: 4px solid #e9ded2;
+}
+
+.theme-light .ia-chatgpt .ia-title {
+    color: #1a73e8;
+}
+
+/* DeepSeek */
+.ia-deepseek {
+    border-image: linear-gradient(to bottom, #4285f4, #203961) 1;
+    background: linear-gradient(135deg, #30303a 0%, #25272b 100%);
+    color: #fff;
+}
+
+.ia-deepseek .ia-header {
+    border-bottom: 1px solid #595967;
+}
+
+.ia-deepseek .ia-logo {
+    fill: #b9cff3;
+}
+
+.ia-deepseek .ia-title {
+    color: #e6e3f0;
+}
+
+.ia-deepseek p {
+    color: #fff;
+}
+
+.ia-deepseek .ia-content h1, 
+.ia-deepseek .ia-content h2, 
+.ia-deepseek .ia-content h3 {
+    color: #fff;
+}
+
+.ia-deepseek .ia-content a {
+    color: #493ee3;
+}
+
+.ia-deepseek .ia-content ul,.ia-content ol,.ia-deepseek .math {
+    color: #b8b6c5;
+}
+
+.ia-deepseek th {
+    background-color: #424242;
+}
+
+.ia-deepseek:focus-within {
+    outline: 2px solid #4285f4;
+    outline-offset: 2px;
+}
+
+.ia-deepseek .action-btn:focus-within {
+    outline-color: #4285f4;
+}
+
+.ia-deepseek .action-btn:hover {
+    background: rgba(66, 133, 244, 0.1);
+    border-color: #4285f4;
+    color: #4285f4;
+}
+
+.ia-deepseek pre {
+    background: #17191b;
+    border-radius: 16px;
+    border: none;
+    color: #a2a9b0;
+}
+
+.ia-deepseek .ia-content blockquote {
+    border-left: 4px solid #4285f4;
+    background: rgba(66, 133, 244, 0.1);
+}
+
+.theme-light .ia-deepseek {
+    background: linear-gradient(135deg, #f8f9ff 0%, #e8f0fe 100%);
+    border-left: 4px solid #4285f4;
+}
+
+.theme-light .ia-deepseek .ia-title {
+    color: #1a73e8;
+}
+
+/* Gemini */
+.ia-gemini {
+    border-image: linear-gradient(to bottom, #4285f4, #fdd663, #1ea446, #d96570) 1;
+    background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+    color: #fff;
+}
+
+.ia-gemini .ia-header {
+    border-bottom: 1px solid #596267;
+}
+
+.ia-gemini .ia-logo {
+    fill: #b3e9f0;
+}
+
+.ia-gemini .ia-title {
+    color: #e6e3f0;
+}
+
+.ia-gemini p {
+    color: #fff;
+}
+
+.ia-gemini .ia-content h1, 
+.ia-gemini .ia-content h2, 
+.ia-gemini .ia-content h3 {
+    color: #fff;
+}
+
+.ia-gemini .ia-content a {
+    color: #3eb4e3;
+}
+
+.ia-gemini .ia-content ul,.ia-content ol,.ia-gemini .math {
+    color: #b6c3c5;
+}
+
+.ia-gemini code {
+    background-color: #4a5050;
+}
+
+.ia-gemini th {
+    background-color: #2d3030;
+}
+
+.ia-gemini:focus-within {
+    outline: 2px solid #4285f4;
+    outline-offset: 2px;
+}
+
+.ia-gemini .action-btn:focus-within {
+    outline-color: #4285f4;
+}
+
+.ia-gemini .action-btn:hover {
+    background: rgba(66, 133, 244, 0.1);
+    border-color: #4285f4;
+    color: #4285f4;
+}
+
+.ia-gemini pre {
+    background: #282a2c;
+    border-radius: 16px;
+    border: none;
+    color: #a2a9b0;
+}
+
+.ia-gemini .ia-content blockquote {
+    border-left: 4px solid #4285f4;
+    background: rgba(66, 133, 244, 0.1);
+}
+
+.theme-light .ia-gemini {
+    background: linear-gradient(135deg, #f8f9ff 0%, #e8f0fe 100%);
+    border-left: 4px solid #4285f4;
+}
+
+.theme-light .ia-gemini .ia-title {
+    color: #1a73e8;
+} 

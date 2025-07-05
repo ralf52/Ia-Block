@@ -27,11 +27,6 @@ const DEFAULT_SETTINGS: IABlockSettings = {
  */
 type IAType = 'default' | 'dp' | 'cg' | 'c' | 'g';
 
-/**
- * Patrón regex para bloques inline de IA
- */
-const INLINE_PATTERN = /\.\.\.\.\s*(.*?)\s*\.\.\.\./s;
-
 // ============================================================================
 // CLASE PRINCIPAL DEL PLUGIN
 // ============================================================================
@@ -46,9 +41,6 @@ export default class IABlockPlugin extends Plugin {
     
     /** Configuración del plugin */
     settings: IABlockSettings;
-    
-    /** Patrón para detectar bloques inline */
-    private readonly inlinePattern = INLINE_PATTERN;
 
     // ========================================================================
     // CICLO DE VIDA DEL PLUGIN
@@ -58,23 +50,17 @@ export default class IABlockPlugin extends Plugin {
      * Se ejecuta cuando el plugin se carga
      */
     async onload(): Promise<void> {
-        console.log('IA Block Plugin cargado');
-        
-        // Cargar configuración
         await this.loadSettings();
-        
-        // Registrar pestaña de configuración
         this.addSettingTab(new IABlockSettingTab(this.app, this));
-
-        // Registrar procesadores de markdown
-        this.registerMarkdownProcessors();
+        this.registerMarkdownCodeBlockProcessor('ia-block', (source, el, ctx) => {
+            this.renderIABlock(source, el, ctx);
+        });
     }
 
     /**
      * Se ejecuta cuando el plugin se desactiva
      */
     onunload(): void {
-        console.log('IA Block Plugin desactivado');
         this.cleanupReactRoots();
     }
 
@@ -90,58 +76,6 @@ export default class IABlockPlugin extends Plugin {
         this.registerMarkdownCodeBlockProcessor('ia-block', (source, el, ctx) => {
             this.renderIABlock(source, el, ctx);
         });
-
-        // Post-procesador para bloques inline
-        this.registerMarkdownPostProcessor((el, ctx) => {
-            this.processInlineBlocks(el, ctx);
-        });
-    }
-
-    // ========================================================================
-    // PROCESAMIENTO DE BLOQUES INLINE
-    // ========================================================================
-
-    /**
-     * Procesa bloques inline de IA en el contenido
-     */
-    private processInlineBlocks(el: HTMLElement, ctx: MarkdownPostProcessorContext): void {
-        try {
-            // Buscar bloques IA en elementos de párrafo
-            const paragraphs = el.querySelectorAll('p');
-            paragraphs.forEach(p => this.processParagraph(p));
-            
-            // Buscar bloques IA en elementos de código
-            const codeElements = el.querySelectorAll(':not(pre) > code');
-            codeElements.forEach(code => this.processCodeElement(code as HTMLElement));
-        } catch (error) {
-            console.error('Error procesando bloques inline:', error);
-        }
-    }
-
-    /**
-     * Procesa un párrafo en busca de bloques IA
-     */
-    private processParagraph(p: HTMLElement): void {
-        const text = p.textContent;
-        if (!text || !this.inlinePattern.test(text)) return;
-        
-        const match = text.match(this.inlinePattern);
-        if (match && match[1]) {
-            this.renderInlineIABlock(match[1], p);
-        }
-    }
-
-    /**
-     * Procesa un elemento de código en busca de bloques IA
-     */
-    private processCodeElement(code: HTMLElement): void {
-        const content = code.textContent;
-        if (!content || !this.inlinePattern.test(content)) return;
-        
-        const match = content.match(this.inlinePattern);
-        if (match && match[1]) {
-            this.renderInlineIABlock(match[1], code);
-        }
     }
 
     // ========================================================================
@@ -164,12 +98,16 @@ export default class IABlockPlugin extends Plugin {
                 
                 while ((match = paramRegex.exec(firstLine)) !== null) {
                     const key = match[1];
-                    const value = match[3] || match[4]; // Maneja valores con/sin comillas
+                    const value = match[3] || match[4];
                     
-                    this.setParamValue(params, key, value);
+                    if (key === 'ia' && ['default', 'dp', 'cg', 'c', 'g'].includes(value)) {
+                        params.ia = value as IAType;
+                    }
+                    if (key === 'title') {
+                        params.title = value;
+                    }
                 }
                 
-                // Remover la primera línea si contenía parámetros
                 if (paramRegex.test(firstLine)) {
                     lines.shift();
                 }
@@ -177,7 +115,6 @@ export default class IABlockPlugin extends Plugin {
             
             params.content = lines.join('\n').trim();
         } catch (error) {
-            console.error('Error parseando parámetros:', error);
             params.content = input.trim();
         }
         
@@ -215,22 +152,7 @@ export default class IABlockPlugin extends Plugin {
             const params = this.parseParams(source);
             this.renderWithReact(el, params);
         } catch (error) {
-            console.error('Error renderizando bloque IA:', error);
-            this.showError(el, 'Error al renderizar el bloque IA');
-        }
-    }
-
-    /**
-     * Renderiza un bloque IA inline
-     */
-    private renderInlineIABlock(content: string, el: HTMLElement): void {
-        try {
-            const params = this.parseParams(content);
-            el.empty();
-            this.renderWithReact(el, params);
-        } catch (error) {
-            console.error('Error renderizando bloque IA inline:', error);
-            this.showError(el, 'Error al renderizar el bloque IA');
+            el.innerHTML = '<div class="ia-error">Error al renderizar el bloque IA</div>';
         }
     }
 
@@ -252,8 +174,7 @@ export default class IABlockPlugin extends Plugin {
             root.render(component);
             (container as any)._reactRoot = root;
         } catch (error) {
-            console.error('Error renderizando componente React:', error);
-            this.showError(container, 'Error al renderizar el componente');
+            container.innerHTML = '<div class="ia-error">Error al renderizar el componente</div>';
         }
     }
 
@@ -265,7 +186,7 @@ export default class IABlockPlugin extends Plugin {
             try {
                 (container as any)._reactRoot.unmount();
             } catch (error) {
-                console.error('Error desmontando React root:', error);
+                // Ignore cleanup errors
             }
         }
     }
@@ -308,13 +229,7 @@ export default class IABlockPlugin extends Plugin {
                     <path d="M12 24A14.304 14.304 0 000 12 14.304 14.304 0 0012 0a14.305 14.305 0 0012 12 14.305 14.305 0 00-12 12"></path></svg>`
         };
 
-        const logo = logos[ia];
-        if (!logo) {
-            console.warn(`Logo no encontrado para IA: ${ia}`);
-            return logos.default;
-        }
-        
-        return logo;
+        return logos[ia] || logos.default;
     }
 
     /**
@@ -363,21 +278,12 @@ export default class IABlockPlugin extends Plugin {
         for (const leaf of leaves) {
             const view = leaf.view;
             if (view instanceof MarkdownView) {
-                this.refreshMarkdownView(view);
+                if (view.getMode && view.getMode() === 'preview') {
+                    (view as any).previewMode?.renderer?.render();
+                } else if (view.editor) {
+                    view.editor.setValue(view.editor.getValue());
+                }
             }
-        }
-    }
-
-    /**
-     * Refresca una vista específica de Markdown
-     */
-    private refreshMarkdownView(view: MarkdownView): void {
-        // Forzar re-render del preview si está en modo preview
-        if (view.getMode && view.getMode() === 'preview') {
-            (view as any).previewMode?.renderer?.render();
-        } else if (view.editor) {
-            // Si está en modo editor, forzar un cambio para refrescar el preview cuando se cambie
-            view.editor.setValue(view.editor.getValue());
         }
     }
 }

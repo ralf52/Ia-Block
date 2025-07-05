@@ -1,0 +1,23 @@
+/* Variables CSS para temas */
+:root {
+    --ia-primary-color: #7a5af5;
+    --ia-secondary-color: #b8a8ff;
+    --ia-bg-dark: linear-gradient(135deg, #1a1b26 0%, #16161e 100%);
+    --ia-bg-light: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    --ia-border-dark: #3d3a50;
+    --ia-border-light: #dee2e6;
+    --ia-text-dark: #c0caf5;
+    --ia-text-light: #495057;
+    --ia-title-dark: #e6e3f0;
+    --ia-title-light: #6f42c1;
+    --ia-error-color: #e74c3c;
+    --ia-success-color: #27ae60;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+} 
