@@ -23,7 +23,7 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-shadow: 0 2px 10px rgba(122, 90, 245, 0.2);
+      text-shadow: 0 2px 10px #7a5af533;
     }
 
     .subtitle {
@@ -39,12 +39,12 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    background: rgba(26, 27, 38, 0.95);
+    background: #1a1b26f2;
     color: #b8a8ff;
     padding: 15px 25px;
     border-radius: 8px;
     border-left: 4px solid #7a5af5;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px #0000004d;
     z-index: 100;
     transform: translateX(200%);
     transition: transform 0.4s ease;
@@ -89,7 +89,7 @@
     align-items: center;
     justify-content: center;
     /* Filtro de sombra aplicado al contenedor */
-    filter: drop-shadow(0 0 5px rgba(122, 90, 245, 0.7));
+    filter: drop-shadow(0 0 5px #7a5af5b3);
 }
 
   .ia-logo svg {
@@ -181,7 +181,7 @@
       border-left: 4px solid #7a5af5;
       padding: 0.5em 1em;
       margin: 1.5em 0;
-      background: rgba(122, 90, 245, 0.1);
+      background: #7a5af51a;
       border-radius: 0 4px 4px 0;
     }
 
@@ -199,137 +199,134 @@
 
     .ia-content th, .ia-content td {
       border: 1px solid #3d3a50;
-      padding: 0.8em;
+      padding: 12px;
       text-align: left;
     }
 
     .ia-content th {
-      background: rgba(122, 90, 245, 0.2);
+      background: #7a5af533;
+      font-weight: 600;
     }
     
     /* Estilos para ecuaciones LaTeX */
     .katex {
-      font-size: 1.1em;
+      color: #b8a8ff;
     }
     
     .katex-display {
-      margin: 1em 0;
-      padding: 0.8em;
-      overflow-x: auto;
-      overflow-y: hidden;
-      background: rgba(26, 27, 38, 0.7);
+      background: #1a1b26b3;
+      padding: 15px;
       border-radius: 8px;
-      border: 1px solid #3d3a50;
-      text-align: center;
+      margin: 20px 0;
+      overflow-x: auto;
     }
     
     .katex-display > .katex {
-      display: inline-block;
-      white-space: nowrap;
+      display: flex;
+      justify-content: center;
     }
     
     .katex-inline {
-      display: inline;
-      white-space: nowrap;
-      padding: 0 2px;
+      background: #7a5af526;
+      padding: 2px 6px;
+      border-radius: 4px;
     }
 
     .info-section {
-      background: rgba(122, 90, 245, 0.15);
-      border-radius: 8px;
+      background: #7a5af526;
       padding: 20px;
-      margin: 30px 0;
-      border-left: 3px solid #7a5af5;
+      border-radius: 8px;
+      margin: 20px 0;
     }
 
     .info-section h3 {
       color: #b8a8ff;
       margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      font-size: 1.2em;
     }
 
     .info-section ul {
-      padding-left: 20px;
-      margin-top: 10px;
+      list-style-type: none;
+      padding: 0;
     }
 
     .info-section li {
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
     }
 
     footer {
       text-align: center;
-      margin-top: 50px;
+      margin-top: 40px;
       padding: 20px;
-      font-size: 0.9rem;
-      color: #999;
       border-top: 1px solid #3d3a50;
+      color: #999999;
     }
 
     /* Botones de acción */
     .ia-actions {
       display: flex;
-      gap: 10px;
+      gap: 8px;
     }
 
     .action-btn {
-      background: rgba(122, 90, 245, 0.2);
-      border: none;
+      background: #7a5af533;
+      border: 1px solid #7a5af5;
       color: #b8a8ff;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
+      padding: 8px 12px;
+      border-radius: 6px;
       cursor: pointer;
+      transition: all 0.3s ease;
       display: flex;
       align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-      font-size: 16px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      gap: 5px;
+      font-size: 14px;
+      box-shadow: 0 2px 5px #00000033;
     }
 
     .action-btn:hover {
-      background: rgba(122, 90, 245, 0.4);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      background: #7a5af566;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px #0000004d;
     }
 
     .action-btn:active {
       transform: translateY(0);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      box-shadow: 0 1px 3px #00000033;
     }
 
     /* Estado de contenido oculto */
     .content-hidden .ia-content {
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-      margin: 0;
-      padding: 0;
+      display: none;
     }
 
     .content-hidden .ia-response {
-      padding-bottom: 0;
+      border-left-width: 2px;
     }
 
     .notification {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: rgba(26, 27, 38, 0.95);
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #1a1b26f2;
       color: #b8a8ff;
       padding: 15px 25px;
       border-radius: 8px;
       border-left: 4px solid #7a5af5;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      z-index: 1000;
+      box-shadow: 0 5px 15px #0000004d;
+      z-index: 100;
       transform: translateX(200%);
       transition: transform 0.4s ease;
       display: flex;
       align-items: center;
       gap: 10px;
+    }
+
+    .theme-light .notification {
+      background: #fffffff2;
+      color: #6f42c1;
+      box-shadow: 0 5px 15px #0000001a;
     }
 
     .notification.show {
@@ -338,7 +335,8 @@
 
     @media (max-width: 768px) {
       .ia-response {
-        position: relative;
+        margin: 10px 0;
+        padding: 15px;
       }
       
       h1 {
@@ -346,7 +344,8 @@
       }
       
       .ia-header {
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: flex-start;
       }
       
       .ia-type {

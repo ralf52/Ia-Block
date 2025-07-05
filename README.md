@@ -115,13 +115,15 @@ npm run build
 ### Estructura del proyecto
 
 ```
-├── Components/
-│   ├── IABlockComponent.tsx  # Componente principal
-│   └── Icons.tsx            # Iconos SVG locales
-├── main.ts                  # Plugin principal
-├── types.ts                 # Definiciones de tipos
+├── src/
+│   ├── Components/
+│   │   ├── IABlockComponent.tsx  # Componente principal
+│   │   └── Icons.tsx            # Iconos SVG locales
+│   ├── main.ts                  # Plugin principal
+│   └── types.ts                 # Definiciones de tipos
 ├── styles.css              # Estilos CSS
 ├── manifest.json           # Metadatos del plugin
+├── esbuild.config.mjs      # Configuración de build
 └── package.json            # Dependencias
 ```
 
