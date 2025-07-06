@@ -63,22 +63,22 @@ ia:cg title:Sintaxis
 ### Ejemplos de uso
 
 #### Análisis con DeepSeek
-```markdown
-```ia-block
-ia:dp title:Análisis de datos
-Los datos muestran un incremento del 23% en ventas.
-**Recomendación**: Continuar con la estrategia actual.
-```
-```
+````markdown
+   ```ia-block
+   ia:dp title:Análisis de datos
+   Los datos muestran un incremento del 23% en ventas.
+   **Recomendación**: Continuar con la estrategia actual.
+   ```
+````
 
 #### Resumen con ChatGPT
-```markdown
-```ia-block
-ia:cg title:Resumen ejecutivo
-Este documento presenta un análisis completo de la situación actual
-del mercado y las oportunidades de crecimiento identificadas.
-```
-```
+````markdown
+   ```ia-block
+   ia:cg title:Resumen ejecutivo
+   Este documento presenta un análisis completo de la situación actual
+   del mercado y las oportunidades de crecimiento identificadas.
+   ```
+````
 
 ## 🎨 Personalización
 
