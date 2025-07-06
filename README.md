@@ -50,12 +50,35 @@ ia:cg title:Sintaxis
 ```
 ````
 
-### Parámetros disponibles
+### Modelos de IA soportados
 
-| Parámetro | Descripción | Valores válidos | Ejemplo |
-|-----------|-------------|-----------------|---------|
-| `ia` | Tipo de IA | `default`, `dp`, `cg`, `c`, `g` | `ia: dp` |
-| `title` | Título del bloque | Cualquier texto | `title: "Mi análisis"` |
+| Código | Modelo | Descripción |
+|--------|--------|-------------|
+| `default` | Asistente IA | Modelo genérico con icono de IA |
+| `dp` | DeepSeek-R1 | Modelo de DeepSeek con logo oficial |
+| `cg` | ChatGPT | Modelo de OpenAI con logo oficial |
+| `c` | Copilot | Modelo de Microsoft con logo oficial |
+| `g` | Gemini | Modelo de Google con logo oficial |
+
+### Ejemplos de uso
+
+#### Análisis con DeepSeek
+```markdown
+```ia-block
+ia:dp title:Análisis de datos
+Los datos muestran un incremento del 23% en ventas.
+**Recomendación**: Continuar con la estrategia actual.
+```
+```
+
+#### Resumen con ChatGPT
+```markdown
+```ia-block
+ia:cg title:Resumen ejecutivo
+Este documento presenta un análisis completo de la situación actual
+del mercado y las oportunidades de crecimiento identificadas.
+```
+```
 
 ## 🎨 Personalización
 
@@ -74,32 +97,16 @@ Ve a **Configuración** → **Complementos de la comunidad** → **IA Block Gene
 
 Este proyecto está licenciado bajo la **Licencia MIT** - ver el archivo [LICENSE](LICENSE) para detalles completos.
 
-### Antes de reportar un problema
+## 🤝 Contribuir
 
-1. **Verifica la versión**: Asegúrate de tener la última versión del plugin
-2. **Revisa la documentación**: Muchas preguntas están respondidas en este README
-3. **Busca issues existentes**: Tu problema puede ya estar reportado
+¿Te gustaría contribuir al proyecto? Consulta nuestra [guía de contribución](docs/CONTRIBUTING.md) para más detalles.
 
-### Reportar un problema
+## 📚 Documentación
 
-Si encuentras un bug o tienes una sugerencia:
-
-1. Ve a la sección [Issues](https://github.com/ralf52/Ia-Block/issues)
-2. Busca si tu problema ya está reportado
-3. Si no, crea un nuevo issue con:
-   - Descripción clara del problema
-   - Pasos para reproducirlo
-   - Versión de Obsidian y del plugin
-   - Capturas de pantalla si es relevante
-
-### Solicitar una funcionalidad
-
-Para solicitar nuevas funcionalidades:
-
-1. Crea un issue con la etiqueta `enhancement`
-2. Describe la funcionalidad deseada
-3. Explica por qué sería útil
-4. Proporciona ejemplos de uso si es posible
+- [Primeros pasos](docs/GETTING_STARTED.md) - Guía de inicio rápido
+- [Guía de desarrollo](docs/DEVELOPMENT.md) - Cómo configurar el entorno de desarrollo
+- [Guía de contribución](docs/CONTRIBUTING.md) - Cómo contribuir al proyecto
+- [Changelog](docs/CHANGELOG.md) - Historial de cambios
 
 ## 🔄 Historial de versiones
 
