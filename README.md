@@ -1,126 +1,127 @@
+<p align="right">
+  <a href="README.es.md">???? Espa�ol</a> | <b>???? English</b>
+</p>
+
 # IA Block Generator
 
-Un plugin para Obsidian que crea bloques estilizados y visualmente atractivos para contenido generado por IA, con soporte para múltiples modelos y una interfaz moderna.
+An Obsidian plugin that creates stylized and visually attractive blocks for AI-generated content, with support for multiple models and a modern interface.
 
-## 📖 Uso
+## ?? Usage
 ![Trailer](https://github.com/user-attachments/assets/90ba11fa-594e-4191-b68b-644885c8f703)
 
-## Temas
+## Themes
 #### Default
 ![default](https://github.com/user-attachments/assets/8cf9d104-0129-4f7b-a205-ad0354cbb2ee)
 #### ChatGPT
 ![cg](https://github.com/user-attachments/assets/ef8494a2-8052-4200-b633-eb70d3c92aa0)
-#### Gemmini
+#### Gemini
 ![g](https://github.com/user-attachments/assets/fdf4132f-db78-4b6c-a682-f822251ac529)
 #### Copilot
 ![c](https://github.com/user-attachments/assets/7cfb1f48-f639-4171-b990-ca1e80ebeeb9)
 #### DeepSeek
 ![dp](https://github.com/user-attachments/assets/fc555e7b-61ad-4573-8f2a-03600d5a86ea)
 
-## 🚀 Instalación
+## ?? Installation
 
-### Desde Obsidian (Recomendado)
-1. Abre **Configuración** en Obsidian
-2. Ve a **Complementos de la comunidad**
-3. Desactiva **Modo seguro** si está activado
-4. Haz clic en **Explorar**
-5. Busca "IA Block Generator"
-6. Haz clic en **Instalar** y luego **Activar**
+### From Obsidian (Recommended)
+1. Open **Settings** in Obsidian
+2. Go to **Community Plugins**
+3. Disable **Safe Mode** if enabled
+4. Click **Browse**
+5. Search for "IA Block Generator"
+6. Click **Install** and then **Enable**
 
-### Instalación manual
-1. Descarga el archivo `main.js`, `styles.css` y `manifest.json` de la [última versión](https://github.com/ralf52/Ia-Block/releases)
-2. Extrae el contenido en tu carpeta de plugins de Obsidian:
+### Manual Installation
+1. Download `main.js`, `styles.css`, and `manifest.json` from the [latest release](https://github.com/ralf52/Ia-Block/releases)
+2. Extract the contents into your Obsidian plugins folder:
    ```
    {vault}/.obsidian/plugins/ia-block-generator/
    ```
-3. Reinicia Obsidian
-4. Activa el plugin en **Configuración** → **Complementos de la comunidad**
+3. Restart Obsidian
+4. Enable the plugin in **Settings** ? **Community Plugins**
 
+## ?? Basic Syntax
 
-
-### Sintaxis básica
-
-Crea bloques IA usando la sintaxis de código de Obsidian:
-![Sintaxis](https://github.com/user-attachments/assets/2623d568-e1d1-4fe6-81fa-56695a805b1e)
+Create IA blocks using Obsidian's code syntax:
+![Syntax](https://github.com/user-attachments/assets/2623d568-e1d1-4fe6-81fa-56695a805b1e)
 
 ````markdown
 ```ia-block
-ia:cg title:Sintaxis
+ia:cg title:Syntax
 ### Example
 ```
 ````
 
-### Modelos de IA soportados
+## Supported AI Models
 
-| Código | Modelo | Descripción |
-|--------|--------|-------------|
-| `default` | Asistente IA | Modelo genérico con icono de IA |
-| `dp` | DeepSeek-R1 | Modelo de DeepSeek con logo oficial |
-| `cg` | ChatGPT | Modelo de OpenAI con logo oficial |
-| `c` | Copilot | Modelo de Microsoft con logo oficial |
-| `g` | Gemini | Modelo de Google con logo oficial |
+| Code | Model | Description |
+|------|-------|-------------|
+| `default` | AI Assistant | Generic model with AI icon |
+| `dp` | DeepSeek-R1 | DeepSeek model with official logo |
+| `cg` | ChatGPT | OpenAI model with official logo |
+| `c` | Copilot | Microsoft model with official logo |
+| `g` | Gemini | Google model with official logo |
 
-### Ejemplos de uso
+## ?? Usage Examples
 
-#### Análisis con DeepSeek
+### Analysis with DeepSeek
 ````markdown
-   ```ia-block
-   ia:dp title:Análisis de datos
-   Los datos muestran un incremento del 23% en ventas.
-   **Recomendación**: Continuar con la estrategia actual.
-   ```
+```ia-block
+ia:dp title:Data Analysis
+The data shows a 23% increase in sales.
+**Recommendation**: Continue with the current strategy.
+```
 ````
 
-#### Resumen con ChatGPT
+### Summary with ChatGPT
 ````markdown
-   ```ia-block
-   ia:cg title:Resumen ejecutivo
-   Este documento presenta un análisis completo de la situación actual
-   del mercado y las oportunidades de crecimiento identificadas.
-   ```
+```ia-block
+ia:cg title:Executive Summary
+This document presents a comprehensive analysis of the current market situation
+and the growth opportunities identified.
+```
 ````
 
-## 🎨 Personalización
+## ?? Customization
 
-### Configuración del plugin
+### Plugin Settings
 
-Ve a **Configuración** → **Complementos de la comunidad** → **IA Block Generator** para ajustar:
+Go to **Settings** ? **Community Plugins** ? **IA Block Generator** to adjust:
 
-- **Pestañas abiertas por defecto**: Controla si los bloques aparecen expandidos inicialmente
+- **Open tabs by default**: Controls whether blocks appear expanded initially
 
+### System Requirements
 
-### Requisitos del sistema
+- **Obsidian**: Version 1.8.10 or higher
 
-- **Obsidian**: Versión 1.8.10 o superior
+## ?? License
 
-## 📝 Licencia
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
-Este proyecto está licenciado bajo la **Licencia MIT** - ver el archivo [LICENSE](LICENSE) para detalles completos.
+## ?? Contributing
 
-## 🤝 Contribuir
+Would you like to contribute to the project? Check out our [contribution guide](docs/CONTRIBUTING.md) for more details.
 
-¿Te gustaría contribuir al proyecto? Consulta nuestra [guía de contribución](docs/CONTRIBUTING.md) para más detalles.
+## ?? Documentation
 
-## 📚 Documentación
+- [Getting Started](docs/GETTING_STARTED.md) - Quick start guide
+- [Development Guide](docs/DEVELOPMENT.md) - How to set up the development environment
+- [Contribution Guide](docs/CONTRIBUTING.md) - How to contribute to the project
+- [Changelog](docs/CHANGELOG.md) - Change history
 
-- [Primeros pasos](docs/GETTING_STARTED.md) - Guía de inicio rápido
-- [Guía de desarrollo](docs/DEVELOPMENT.md) - Cómo configurar el entorno de desarrollo
-- [Guía de contribución](docs/CONTRIBUTING.md) - Cómo contribuir al proyecto
-- [Changelog](docs/CHANGELOG.md) - Historial de cambios
+## ?? Version History
 
-## 🔄 Historial de versiones
-
-### v1.0.1 (Próximamente)
-- Mejoras en el rendimiento
-- Nuevos modelos de IA
+### v1.0.1 (Coming Soon)
+- Performance improvements
+- New AI models
 
 ### v1.0.0
-- ✅ Lanzamiento inicial
-- ✅ Soporte para múltiples modelos de IA
-- ✅ Bloques de código estilizados
-- ✅ Iconos locales sin dependencias externas
-- ✅ Temas adaptativos (claro/oscuro)
-- ✅ Funcionalidad de expandir/contraer
-- ✅ Función de copiar contenido
-- ✅ Accesibilidad mejorada
-- ✅ Diseño responsive
+- ? Initial release
+- ? Support for multiple AI models
+- ? Stylized code blocks
+- ? Local icons with no external dependencies
+- ? Adaptive themes (light/dark)
+- ? Expand/collapse functionality
+- ? Copy content feature
+- ? Improved accessibility
+- ? Responsive design
