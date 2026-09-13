@@ -6,7 +6,7 @@
 
 Un plugin para Obsidian que crea bloques estilizados y visualmente atractivos para contenido generado por IA, con soporte para múltiples modelos y una interfaz moderna.
 
-## ?? Uso
+## Uso
 ![Trailer](https://github.com/user-attachments/assets/90ba11fa-594e-4191-b68b-644885c8f703)
 
 ## Temas
@@ -21,7 +21,7 @@ Un plugin para Obsidian que crea bloques estilizados y visualmente atractivos pa
 #### DeepSeek
 ![dp](https://github.com/user-attachments/assets/fc555e7b-61ad-4573-8f2a-03600d5a86ea)
 
-## ?? Instalación
+## Instalación
 
 ### Desde Obsidian (Recomendado)
 1. Abre **Configuración** en Obsidian
@@ -40,7 +40,7 @@ Un plugin para Obsidian que crea bloques estilizados y visualmente atractivos pa
 3. Reinicia Obsidian
 4. Activa el plugin en **Configuración** ? **Complementos de la comunidad**
 
-## ?? Sintaxis básica
+## Sintaxis básica
 
 Crea bloques IA usando la sintaxis de código de Obsidian:
 ![Sintaxis](https://github.com/user-attachments/assets/2623d568-e1d1-4fe6-81fa-56695a805b1e)
@@ -82,7 +82,7 @@ del mercado y las oportunidades de crecimiento identificadas.
 ```
 ````
 
-## ?? Personalización
+## Personalización
 
 ### Configuración del plugin
 
@@ -94,22 +94,22 @@ Ve a **Configuración** ? **Complementos de la comunidad** ? **IA Block Generato
 
 - **Obsidian**: Versión 1.8.10 o superior
 
-## ?? Licencia
+## Licencia
 
 Este proyecto está licenciado bajo la **Licencia MIT** - ver el archivo [LICENSE](LICENSE) para detalles completos.
 
-## ?? Contribuir
+## Contribuir
 
 ¿Te gustaría contribuir al proyecto? Consulta nuestra [guía de contribución](docs/CONTRIBUTING.md) para más detalles.
 
-## ?? Documentación
+## Documentación
 
 - [Primeros pasos](docs/GETTING_STARTED.md) - Guía de inicio rápido
 - [Guía de desarrollo](docs/DEVELOPMENT.md) - Cómo configurar el entorno de desarrollo
 - [Guía de contribución](docs/CONTRIBUTING.md) - Cómo contribuir al proyecto
 - [Changelog](docs/CHANGELOG.md) - Historial de cambios
 
-## ?? Historial de versiones
+## Historial de versiones
 
 ### v1.0.1 (Próximamente)
 - Mejoras en el rendimiento
