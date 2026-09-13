@@ -6,7 +6,7 @@
 
 An Obsidian plugin that creates stylized and visually attractive blocks for AI-generated content, with support for multiple models and a modern interface.
 
-## ?? Usage
+## Usage
 ![Trailer](https://github.com/user-attachments/assets/90ba11fa-594e-4191-b68b-644885c8f703)
 
 ## Themes
@@ -21,7 +21,7 @@ An Obsidian plugin that creates stylized and visually attractive blocks for AI-g
 #### DeepSeek
 ![dp](https://github.com/user-attachments/assets/fc555e7b-61ad-4573-8f2a-03600d5a86ea)
 
-## ?? Installation
+## Installation
 
 ### From Obsidian (Recommended)
 1. Open **Settings** in Obsidian
@@ -40,7 +40,7 @@ An Obsidian plugin that creates stylized and visually attractive blocks for AI-g
 3. Restart Obsidian
 4. Enable the plugin in **Settings** ? **Community Plugins**
 
-## ?? Basic Syntax
+## Basic Syntax
 
 Create IA blocks using Obsidian's code syntax:
 ![Syntax](https://github.com/user-attachments/assets/2623d568-e1d1-4fe6-81fa-56695a805b1e)
@@ -82,7 +82,7 @@ and the growth opportunities identified.
 ```
 ````
 
-## ?? Customization
+## Customization
 
 ### Plugin Settings
 
@@ -94,22 +94,22 @@ Go to **Settings** ? **Community Plugins** ? **IA Block Generator** to adjust:
 
 - **Obsidian**: Version 1.8.10 or higher
 
-## ?? License
+## License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
-## ?? Contributing
+## Contributing
 
 Would you like to contribute to the project? Check out our [contribution guide](docs/CONTRIBUTING.md) for more details.
 
-## ?? Documentation
+## Documentation
 
 - [Getting Started](docs/GETTING_STARTED.md) - Quick start guide
 - [Development Guide](docs/DEVELOPMENT.md) - How to set up the development environment
 - [Contribution Guide](docs/CONTRIBUTING.md) - How to contribute to the project
 - [Changelog](docs/CHANGELOG.md) - Change history
 
-## ?? Version History
+## Version History
 
 ### v1.0.1 (Coming Soon)
 - Performance improvements
