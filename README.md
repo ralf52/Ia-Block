@@ -1,5 +1,5 @@
 <p align="right">
-  <a href="README.es.md">???? Español</a> | <b>???? English</b>
+  <a href="README.es.md">EspaÃ±ol</a> | <b>English</b>
 </p>
 
 # IA Block Generator
