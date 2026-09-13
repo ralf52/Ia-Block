@@ -1,10 +1,10 @@
 <p align="right">
-  <b>???? Español</b> | <a href="README.md">???? English</a>
+  <b>EspaÃ±ol</b> | <a href="README.md">English</a>
 </p>
 
 # IA Block Generator
 
-Un plugin para Obsidian que crea bloques estilizados y visualmente atractivos para contenido generado por IA, con soporte para múltiples modelos y una interfaz moderna.
+Un plugin para Obsidian que crea bloques estilizados y visualmente atractivos para contenido generado por IA, con soporte para mÃºltiples modelos y una interfaz moderna.
 
 ## ?? Uso
 ![Trailer](https://github.com/user-attachments/assets/90ba11fa-594e-4191-b68b-644885c8f703)
@@ -21,28 +21,28 @@ Un plugin para Obsidian que crea bloques estilizados y visualmente atractivos pa
 #### DeepSeek
 ![dp](https://github.com/user-attachments/assets/fc555e7b-61ad-4573-8f2a-03600d5a86ea)
 
-## ?? Instalación
+## ?? InstalaciÃ³n
 
 ### Desde Obsidian (Recomendado)
-1. Abre **Configuración** en Obsidian
+1. Abre **ConfiguraciÃ³n** en Obsidian
 2. Ve a **Complementos de la comunidad**
-3. Desactiva **Modo seguro** si está activado
+3. Desactiva **Modo seguro** si estÃ¡ activado
 4. Haz clic en **Explorar**
 5. Busca "IA Block Generator"
 6. Haz clic en **Instalar** y luego **Activar**
 
-### Instalación manual
-1. Descarga el archivo `main.js`, `styles.css` y `manifest.json` de la [última versión](https://github.com/ralf52/Ia-Block/releases)
+### InstalaciÃ³n manual
+1. Descarga el archivo `main.js`, `styles.css` y `manifest.json` de la [Ãºltima versiÃ³n](https://github.com/ralf52/Ia-Block/releases)
 2. Extrae el contenido en tu carpeta de plugins de Obsidian:
    ```
    {vault}/.obsidian/plugins/ia-block-generator/
    ```
 3. Reinicia Obsidian
-4. Activa el plugin en **Configuración** ? **Complementos de la comunidad**
+4. Activa el plugin en **ConfiguraciÃ³n** ? **Complementos de la comunidad**
 
-## ?? Sintaxis básica
+## ?? Sintaxis bÃ¡sica
 
-Crea bloques IA usando la sintaxis de código de Obsidian:
+Crea bloques IA usando la sintaxis de cÃ³digo de Obsidian:
 ![Sintaxis](https://github.com/user-attachments/assets/2623d568-e1d1-4fe6-81fa-56695a805b1e)
 
 ````markdown
@@ -54,9 +54,9 @@ ia:cg title:Sintaxis
 
 ## Modelos de IA soportados
 
-| Código | Modelo | Descripción |
+| CÃ³digo | Modelo | DescripciÃ³n |
 |--------|--------|-------------|
-| `default` | Asistente IA | Modelo genérico con icono de IA |
+| `default` | Asistente IA | Modelo genÃ©rico con icono de IA |
 | `dp` | DeepSeek-R1 | Modelo de DeepSeek con logo oficial |
 | `cg` | ChatGPT | Modelo de OpenAI con logo oficial |
 | `c` | Copilot | Modelo de Microsoft con logo oficial |
@@ -64,12 +64,12 @@ ia:cg title:Sintaxis
 
 ## ?? Ejemplos de uso
 
-### Análisis con DeepSeek
+### AnÃ¡lisis con DeepSeek
 ````markdown
 ```ia-block
-ia:dp title:Análisis de datos
+ia:dp title:AnÃ¡lisis de datos
 Los datos muestran un incremento del 23% en ventas.
-**Recomendación**: Continuar con la estrategia actual.
+**RecomendaciÃ³n**: Continuar con la estrategia actual.
 ```
 ````
 
@@ -77,51 +77,51 @@ Los datos muestran un incremento del 23% en ventas.
 ````markdown
 ```ia-block
 ia:cg title:Resumen ejecutivo
-Este documento presenta un análisis completo de la situación actual
+Este documento presenta un anÃ¡lisis completo de la situaciÃ³n actual
 del mercado y las oportunidades de crecimiento identificadas.
 ```
 ````
 
-## ?? Personalización
+## ?? PersonalizaciÃ³n
 
-### Configuración del plugin
+### ConfiguraciÃ³n del plugin
 
-Ve a **Configuración** ? **Complementos de la comunidad** ? **IA Block Generator** para ajustar:
+Ve a **ConfiguraciÃ³n** ? **Complementos de la comunidad** ? **IA Block Generator** para ajustar:
 
-- **Pestañas abiertas por defecto**: Controla si los bloques aparecen expandidos inicialmente
+- **PestaÃ±as abiertas por defecto**: Controla si los bloques aparecen expandidos inicialmente
 
 ### Requisitos del sistema
 
-- **Obsidian**: Versión 1.8.10 o superior
+- **Obsidian**: VersiÃ³n 1.8.10 o superior
 
 ## ?? Licencia
 
-Este proyecto está licenciado bajo la **Licencia MIT** - ver el archivo [LICENSE](LICENSE) para detalles completos.
+Este proyecto estÃ¡ licenciado bajo la **Licencia MIT** - ver el archivo [LICENSE](LICENSE) para detalles completos.
 
 ## ?? Contribuir
 
-¿Te gustaría contribuir al proyecto? Consulta nuestra [guía de contribución](docs/CONTRIBUTING.md) para más detalles.
+Â¿Te gustarÃ­a contribuir al proyecto? Consulta nuestra [guÃ­a de contribuciÃ³n](docs/CONTRIBUTING.md) para mÃ¡s detalles.
 
-## ?? Documentación
+## ?? DocumentaciÃ³n
 
-- [Primeros pasos](docs/GETTING_STARTED.md) - Guía de inicio rápido
-- [Guía de desarrollo](docs/DEVELOPMENT.md) - Cómo configurar el entorno de desarrollo
-- [Guía de contribución](docs/CONTRIBUTING.md) - Cómo contribuir al proyecto
+- [Primeros pasos](docs/GETTING_STARTED.md) - GuÃ­a de inicio rÃ¡pido
+- [GuÃ­a de desarrollo](docs/DEVELOPMENT.md) - CÃ³mo configurar el entorno de desarrollo
+- [GuÃ­a de contribuciÃ³n](docs/CONTRIBUTING.md) - CÃ³mo contribuir al proyecto
 - [Changelog](docs/CHANGELOG.md) - Historial de cambios
 
 ## ?? Historial de versiones
 
-### v1.0.1 (Próximamente)
+### v1.0.1 (PrÃ³ximamente)
 - Mejoras en el rendimiento
 - Nuevos modelos de IA
 
 ### v1.0.0
 - ? Lanzamiento inicial
-- ? Soporte para múltiples modelos de IA
-- ? Bloques de código estilizados
+- ? Soporte para mÃºltiples modelos de IA
+- ? Bloques de cÃ³digo estilizados
 - ? Iconos locales sin dependencias externas
 - ? Temas adaptativos (claro/oscuro)
 - ? Funcionalidad de expandir/contraer
-- ? Función de copiar contenido
+- ? FunciÃ³n de copiar contenido
 - ? Accesibilidad mejorada
-- ? Diseño responsive
+- ? DiseÃ±o responsive
