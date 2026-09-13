@@ -62,7 +62,7 @@ ia:cg title:Syntax
 | `c` | Copilot | Microsoft model with official logo |
 | `g` | Gemini | Google model with official logo |
 
-## ?? Usage Examples
+## Usage Examples
 
 ### Analysis with DeepSeek
 ````markdown
@@ -116,12 +116,12 @@ Would you like to contribute to the project? Check out our [contribution guide](
 - New AI models
 
 ### v1.0.0
-- ? Initial release
-- ? Support for multiple AI models
-- ? Stylized code blocks
-- ? Local icons with no external dependencies
-- ? Adaptive themes (light/dark)
-- ? Expand/collapse functionality
-- ? Copy content feature
-- ? Improved accessibility
-- ? Responsive design
+- Initial release
+- Support for multiple AI models
+- Stylized code blocks
+- Local icons with no external dependencies
+- Adaptive themes (light/dark)
+- Expand/collapse functionality
+- Copy content feature
+- Improved accessibility
+- Responsive design
