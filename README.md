@@ -23,13 +23,7 @@ An Obsidian plugin that creates stylized and visually attractive blocks for AI-g
 
 ## Installation
 
-### From Obsidian (Recommended)
-1. Open **Settings** in Obsidian
-2. Go to **Community Plugins**
-3. Disable **Safe Mode** if enabled
-4. Click **Browse**
-5. Search for "IA Block Generator"
-6. Click **Install** and then **Enable**
+### From Obsidian (In Process — not available yet)
 
 ### Manual Installation
 1. Download `main.js`, `styles.css`, and `manifest.json` from the [latest release](https://github.com/ralf52/Ia-Block/releases)
