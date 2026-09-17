@@ -34,6 +34,14 @@ An Obsidian plugin that creates stylized and visually attractive blocks for AI-g
 3. Restart Obsidian
 4. Enable the plugin in **Settings** > **Community Plugins** > **Ia-Block**
 
+ > **Windows users:** The `.obsidian` folder is hidden by default. To show it:
+   > - **Windows 11:** Open File Explorer → go to your vault folder → click **View** → **Show** → **Hidden items**.
+   > - **Windows 10:** Open File Explorer → go to your vault folder → click the **View** tab → check **Hidden items**.
+   > - **Older Windows:** File Explorer → **View** → **Options** → **Change folder and search options** → **View** tab → select **Show hidden files, folders, and drives** → **OK**.
+   >
+   > If you still don't see `.obsidian`, open your vault in Obsidian once so it creates the folder.  
+   > If the `plugins` folder doesn't exist, create it inside `.obsidian`.
+
 ## Basic Syntax
 
 Create IA blocks using Obsidian's code syntax:
