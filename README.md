@@ -38,7 +38,7 @@ An Obsidian plugin that creates stylized and visually attractive blocks for AI-g
    {vault}/.obsidian/plugins/ia-block-generator/
    ```
 3. Restart Obsidian
-4. Enable the plugin in **Settings** ? **Community Plugins**
+4. Enable the plugin in **Settings** > **Community Plugins** > **Ia-Block**
 
 ## Basic Syntax
 
@@ -86,7 +86,7 @@ and the growth opportunities identified.
 
 ### Plugin Settings
 
-Go to **Settings** ? **Community Plugins** ? **IA Block Generator** to adjust:
+Go to **Settings** > **Community Plugins** > **IA Block Generator** to adjust:
 
 - **Open tabs by default**: Controls whether blocks appear expanded initially
 
